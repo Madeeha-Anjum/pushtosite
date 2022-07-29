@@ -28,7 +28,16 @@ const createApp = () => {
   app.use(helmet());
 
   // enables cors for all routes
-  app.use(cors());
+  app.use(
+    cors({
+      origin: [
+        "http://localhost:3000",
+        "https://localhost:3000",
+        "http://pushto.site/",
+        "https://pushto.site/",
+      ],
+    })
+  );
 
   // apply rate limiting to all routes
   app.use(apiLimiter);

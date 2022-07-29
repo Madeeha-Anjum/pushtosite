@@ -58,6 +58,8 @@ paths:
     get:
       summary: Get all urls
       operationId: get_urls
+      tags:
+        - "development"
       responses:
         "200":
           description: A list of url records
@@ -71,6 +73,8 @@ paths:
     delete:
       summary: Reset the database
       operationId: reset_database
+      tags:
+        - "development"
       responses:
         "200":
           description: Database reset

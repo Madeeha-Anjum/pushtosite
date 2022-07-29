@@ -3,14 +3,18 @@ version: '3.8'
 services:
   mysql:
     image: mysql:8
-    ports: 
-      - ${MYSQL_PORT}:3306
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: ${MYSQL_DB}
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - push-to-site-db:/var/lib/mysql
-
+  server:
+    build: .
+    ports:
+      - 80:${PORT}
+    env_file: .env
+    depends_on:
+      - mysql
 volumes:
   push-to-site-db:

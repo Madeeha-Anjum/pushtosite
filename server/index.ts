@@ -4,7 +4,7 @@ import createApp from "./src/app";
 import db from "./src/db";
 
 // force: true will drop the tables, and recreate if it already exists
-db.sync({ force: true })
+db.sync({ force: false })
   .then(() => {
     console.log("Database synced");
   })
